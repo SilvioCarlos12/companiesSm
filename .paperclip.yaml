@@ -1,0 +1,80 @@
+schema: "paperclip/v1"
+agents:
+  ceo:
+    role: "ceo"
+    icon: "brain"
+    adapter:
+      config:
+        dangerouslyBypassApprovalsAndSandbox: true
+        model: "gpt-5.4"
+      type: "codex_local"
+    runtime:
+      heartbeat:
+        enabled: true
+        maxConcurrentRuns: 1
+    permissions:
+      canCreateAgents: true
+  dev-backend:
+    role: "general"
+    icon: "hammer"
+    adapter:
+      config:
+        dangerouslyBypassApprovalsAndSandbox: true
+        model: "gpt-5.3-codex"
+      type: "codex_local"
+    runtime:
+      heartbeat:
+        intervalSec: 300
+        maxConcurrentRuns: 1
+  dev-frontend:
+    role: "general"
+    icon: "hammer"
+    adapter:
+      config:
+        dangerouslyBypassApprovalsAndSandbox: true
+        model: "gpt-5.3-codex"
+        modelReasoningEffort: "high"
+      type: "codex_local"
+    runtime:
+      heartbeat:
+        intervalSec: 300
+        maxConcurrentRuns: 1
+  po:
+    role: "general"
+    icon: "lightbulb"
+    adapter:
+      config:
+        dangerouslyBypassApprovalsAndSandbox: true
+        model: "gpt-5.4"
+      type: "codex_local"
+    runtime:
+      heartbeat:
+        intervalSec: 300
+        maxConcurrentRuns: 1
+  qaagent:
+    role: "qa"
+    icon: "microscope"
+    capabilities: "Owns release validation, acceptance-criteria traceability, defect routing, retest closure, and QA approval decisions."
+    adapter:
+      config:
+        dangerouslyBypassApprovalsAndSandbox: true
+        model: "gpt-5.4"
+        modelReasoningEffort: "medium"
+      type: "codex_local"
+    runtime:
+      heartbeat:
+        enabled: true
+        maxConcurrentRuns: 1
+projects:
+  documentointeligente:
+    color: "#3b82f6"
+    status: "planned"
+sidebar:
+  agents:
+    - "ceo"
+    - "po"
+    - "qaagent"
+    - "dev-backend"
+    - "dev-frontend"
+  projects:
+    - "documentointeligente"
